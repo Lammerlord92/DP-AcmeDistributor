@@ -1,0 +1,712 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- * PopulateDatabase.xml * * Copyright (C) 2014 Universidad de Sevilla 
+	* * The use of this project is hereby constrained to the conditions of the 
+	* TDG Licence, a copy of which you may download from * http://www.tdg-seville.info/License.html -->
+
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+	">
+
+	<!-- User accounts -->
+
+	<bean id="userAccount1" class="security.UserAccount">
+		<property name="username" value="distri1" />
+		<property name="password" value="6a7e55d956c5538583fc3b1d2c2ea463" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="DISTRIBUTOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="userAccount2" class="security.UserAccount">
+		<property name="username" value="distri2" />
+		<property name="password" value="170752a1bed4132f699d5541bfd374ff" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="DISTRIBUTOR" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount3" class="security.UserAccount">
+		<property name="username" value="produc1" />
+		<property name="password" value="10bf261fff0ffe061a646294dc164998" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PRODUCER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount4" class="security.UserAccount">
+		<property name="username" value="produc2" />
+		<property name="password" value="b3a81a99791a2f9a4a4dd0a2069599d1" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="PRODUCER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="userAccount5" class="security.UserAccount">
+		<property name="username" value="cust1" />
+		<property name="password" value="1f07921f4416f182a32c483ccac2b0e6" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount6" class="security.UserAccount">
+		<property name="username" value="cust2" />
+		<property name="password" value="979f4582d8aabe8d3e4c25aaa1825213" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	<bean id="userAccount7" class="security.UserAccount">
+		<property name="username" value="cust3" />
+		<property name="password" value="e586578ee387c0bf19b8094fba871b80" />
+		<property name="authorities">
+			<list>
+				<bean class="security.Authority">
+					<property name="authority" value="CUSTOMER" />
+				</bean>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	<!-- Credit cards -->
+	<bean id="credit1" class="domain.CreditCard">
+		<property name="holderName" value="holder1"/>
+		<property name="brandName" value="brand1"/>
+		<property name="number" value="5374215859088602"/>
+		<property name="expirationMonth" value="12"/>
+		<property name="expirationYear" value="2016"/>
+		<property name="cvvCode" value="123"/>
+	</bean>
+	<bean id="credit2" class="domain.CreditCard">
+		<property name="holderName" value="holder2"/>
+		<property name="brandName" value="brand2"/>
+		<property name="number" value="5351311848690579"/>
+		<property name="expirationMonth" value="10"/>
+		<property name="expirationYear" value="2015"/>
+		<property name="cvvCode" value="563"/>
+	</bean>
+	<bean id="credit3" class="domain.CreditCard">
+		<property name="holderName" value="holder3"/>
+		<property name="brandName" value="brand1"/>
+		<property name="number" value="5285018735898923"/>
+		<property name="expirationMonth" value="09"/>
+		<property name="expirationYear" value="2017"/>
+		<property name="cvvCode" value="904"/>
+	</bean>
+	
+	
+	
+	
+	<!-- Shopping carts -->
+	
+	<bean id="cart1" class="domain.ShoppingCart">
+		<property name="lines">
+			<list>
+			</list>
+		</property>
+	</bean>
+	<bean id="cart2" class="domain.ShoppingCart">
+		<property name="lines">
+			<list>
+			</list>
+		</property>
+	</bean>
+	<bean id="cart3" class="domain.ShoppingCart">
+		<property name="lines">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	<!-- Producers -->
+	
+	<bean id="productor1" class="domain.Producer">
+		<property name="userAccount">
+			<ref bean="userAccount3"/>
+		</property>
+		<property name="code" value="Prod1"/>
+		<property name="name" value="Juan"/>
+		<property name="surname" value="Amarillo"/>
+		<property name="address" value="C\Paseo nº5 41012, Pueblo"/>
+		<property name="birthday" value="06/01/1990"/>
+		<property name="contactPhone" value="986234231"/>
+		<property name="email" value="amarillo@gmail.com"/>
+		<property name="items">
+			<list>
+				<ref bean="item1"/>
+			</list>
+		</property>
+	</bean>
+	<bean id="productor2" class="domain.Producer">
+		<property name="userAccount">
+			<ref bean="userAccount4"/>
+		</property>
+		<property name="code" value="Prod2"/>
+		<property name="name" value="Amapola"/>
+		<property name="surname" value="Pérez"/>
+		<property name="address" value="C\Vientos nº2 21010, Villa"/>
+		<property name="birthday" value="12/12/1995"/>
+		<property name="contactPhone" value="745120682"/>
+		<property name="email" value="poli@gmail.com"/>
+		<property name="items">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	
+	<!-- Entry registers -->
+	
+	<bean id="register1" class="domain.EntryRegister">
+		<property name="creationDate" value="02/01/2015"/>
+		<property name="totalPrice">
+			<ref bean="entryMoney1"/>
+		</property>
+		<property name="quantity" value="3"/>
+		<property name="item">
+			<ref bean="item1"/>
+		</property>
+		<property name="warehouse">
+			<ref bean="war1"/>
+		</property>
+	</bean>
+	
+	
+	
+	<!-- Items -->
+	
+	<bean id="item1" class="domain.Item">
+		<property name="reference" value="Alf001"/>
+		<property name="name" value="Objeto 1"/>
+		<property name="category" value="Utensilio"/>
+		<property name="history">
+			<list>
+				<ref bean="history1"/>
+				<ref bean="history2"/>
+			</list>
+		</property>
+		<property name="comments">
+			<list>
+			</list>
+		</property>
+		<property name="producer">
+			<ref bean="productor1"/>
+		</property>
+		<property name="lines">
+			<list>
+			</list>
+		</property>
+		<property name="taxes">
+			<list>
+				<ref bean="tax1"/>
+			</list>
+		</property>
+		<property name="stocks">
+			<list>
+			</list>
+		</property>
+		<property name="registers">
+			<list>
+				<ref bean="register1"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="item2" class="domain.Item">
+		<property name="reference" value="Alf002"/>
+		<property name="name" value="Objeto 2"/>
+		<property name="category" value="Utensilio"/>
+		<property name="history">
+			<list>
+				<ref bean="history1"/>
+				<ref bean="history3"/>
+			</list>
+		</property>
+		<property name="comments">
+			<list>
+			</list>
+		</property>
+		<property name="producer">
+			<ref bean="productor1"/>
+		</property>
+		<property name="lines">
+			<list>
+			</list>
+		</property>
+		<property name="taxes">
+			<list>
+				<ref bean="tax1"/>
+			</list>
+		</property>
+		<property name="stocks">
+			<list>
+			</list>
+		</property>
+		<property name="registers">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	<!-- Warehouses -->
+	
+	<bean id="war1" class="domain.Warehouse">
+		<property name="name" value="Distribuidora Alfonso"/>
+		<property name="address" value="C/SinNombre nº2, 21012"/>
+		<property name="contactPhone" value="987345123"/>
+		<property name="email" value="distrAlfonso@gmail.com"/>
+		<property name="latitude" value="-6.008629"/>
+		<property name="longitude" value="37.375450"/>
+		<property name="stocks">
+			<list>
+				<ref bean="stock1"/>
+			</list>
+		</property>
+		<property name="distributor"> 
+			<ref bean="distri1"/>
+		</property>
+	</bean>
+	
+	<bean id="war2" class="domain.Warehouse">
+		<property name="name" value="Taller del artesano"/>
+		<property name="address" value="C/de la Manzana s/n, 21014"/>
+		<property name="contactPhone" value="911390908"/>
+		<property name="email" value="tallerDartesano@gmail.com"/>
+		<property name="latitude" value="-6.008629"/>
+		<property name="longitude" value="37.375450"/>
+		<property name="stocks">
+			<list>
+			</list>
+		</property>
+		<property name="distributor"> 
+			<ref bean="distri2"/>
+		</property>
+	</bean>	
+	
+	<!-- Stocks -->
+	
+	<bean id="stock1" class="domain.Stock">
+		<property name="quantity" value="3"/>
+		<property name="warehouse">
+			<ref bean="war1"/>
+		</property>
+		<property name="item">
+			<ref bean="item1"/>
+		</property>
+	</bean>
+	
+	
+	
+	<!-- Distributors -->
+	
+	<bean id="distri1" class="domain.Distributor">
+		<property name="userAccount">
+			<ref bean="userAccount1"/>
+		</property>
+		<property name="code" value="Distr1"/>
+		<property name="name" value="Alfonso"/>
+		<property name="surname" value="de Rojas"/>
+		<property name="address" value="C\Inventada nº1 21012, Ciudad"/>
+		<property name="birthday" value="19/01/1991"/>
+		<property name="contactPhone" value="923234411"/>
+		<property name="email" value="distr@gmail.com"/>
+		<property name="warehouses">
+			<list>
+				<ref bean="war1"/>
+			</list>
+		</property>
+	</bean>
+	
+	<bean id="distri2" class="domain.Distributor">
+		<property name="userAccount">
+			<ref bean="userAccount2"/>
+		</property>
+		<property name="code" value="Distr2"/>
+		<property name="name" value="Mercedes"/>
+		<property name="surname" value="de Verdes"/>
+		<property name="address" value="C\Noexiste nº3 21012, Ciudad"/>
+		<property name="birthday" value="12/03/1993"/>
+		<property name="contactPhone" value="321746676"/>
+		<property name="email" value="merche@gmail.com"/>
+		<property name="warehouses">
+			<list>
+				<ref bean="war2"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- Customers -->
+	
+	<bean id="custo1" class="domain.Customer">
+		<property name="userAccount">
+			<ref bean="userAccount5"/>
+		</property>
+		<property name="code" value="Cust1"/>
+		<property name="name" value="Manuel"/>
+		<property name="surname" value="Prueba"/>
+		<property name="address" value="C\Tumblr nº2 10011, Lugar"/>
+		<property name="birthday" value="11/08/1988"/>
+		<property name="contactPhone" value="123564211"/>
+		<property name="email" value="manuprueb@gmail.com"/>
+		<property name="discount" value="0.0"/>
+		<property name="creditCard">
+			<ref bean="credit1"/>
+		</property>
+		<property name="shoppingCart">
+			<ref bean="cart1"/>
+		</property>
+		<property name="invoices">
+			<list>
+			</list>
+		</property>
+		<property name="comments">
+			<list>
+			</list>
+		</property>
+	</bean>
+	<bean id="custo2" class="domain.Customer">
+		<property name="userAccount">
+			<ref bean="userAccount6"/>
+		</property>
+		<property name="code" value="Cust2"/>
+		<property name="name" value="Ana"/>
+		<property name="surname" value="Chicle"/>
+		<property name="address" value="C\Rapther nº2 92891, Juniperolandia"/>
+		<property name="birthday" value="23/11/1989"/>
+		<property name="contactPhone" value="874514211"/>
+		<property name="email" value="anafromJuni@gmail.com"/>
+		<property name="discount" value="0.0"/>
+		<property name="creditCard">
+			<ref bean="credit2"/>
+		</property>
+		<property name="shoppingCart">
+			<ref bean="cart2"/>
+		</property>
+		<property name="invoices">
+			<list>
+			</list>
+		</property>
+		<property name="comments">
+			<list>
+			</list>
+		</property>
+	</bean>
+	<bean id="custo3" class="domain.Customer">
+		<property name="userAccount">
+			<ref bean="userAccount7"/>
+		</property>
+		<property name="code" value="Cust3"/>
+		<property name="name" value="Katze"/>
+		<property name="surname" value="Hund"/>
+		<property name="address" value="C\Maus nº3 1ºA 00821, Helm"/>
+		<property name="birthday" value="17/10/1987"/>
+		<property name="contactPhone" value="238749823"/>
+		<property name="email" value="rathaus@gmail.com"/>
+		<property name="discount" value="0.0"/>
+		<property name="creditCard">
+			<ref bean="credit3"/>
+		</property>
+		<property name="shoppingCart">
+			<ref bean="cart3"/>
+		</property>
+		<property name="invoices">
+			<list>
+			</list>
+		</property>
+		<property name="comments">
+			<list>
+			</list>
+		</property>
+	</bean>
+	
+
+	
+	
+	<!-- Price Histories -->
+	
+	<bean id="history1" class="domain.HistoryPrice">
+		<property name="startDate" value="01/01/2015"/>
+		<property name="finishDate" value="01/04/2015"/>
+		<property name="distributorPrice">
+			 <ref bean="money1"/>
+		</property>
+		<property name="producerPrice">
+			 <ref bean="money2"/>
+		</property>
+		<property name="item">
+			<ref bean="item1"/>
+		</property>
+	</bean>
+	<bean id="history2" class="domain.HistoryPrice">
+		<property name="startDate" value="02/04/2015"/>
+		<property name="distributorPrice">
+			 <ref bean="money3"/>
+		</property>
+		<property name="producerPrice">
+			 <ref bean="money4"/>
+		</property>
+		<property name="item">
+			<ref bean="item1"/>
+		</property>
+	</bean>
+	<bean id="history3" class="domain.HistoryPrice">
+		<property name="startDate" value="02/04/2015"/>
+		<property name="distributorPrice">
+			 <ref bean="money5"/>
+		</property>
+		<property name="producerPrice">
+			 <ref bean="money6"/>
+		</property>
+		<property name="item">
+			<ref bean="item2"/>
+		</property>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	<!-- Money -->
+	
+	<bean id="money1" class="domain.Money">
+	 	<property name="amount" value="10.0"/>
+		<property name="currency" value="eur"/>
+	</bean>
+	<bean id="money2" class="domain.Money">
+	 	<property name="amount" value="6.0"/>
+		<property name="currency" value="eur"/>
+	</bean>
+	<bean id="money3" class="domain.Money">
+	 	<property name="amount" value="12.0"/>
+		<property name="currency" value="eur"/>
+	</bean>
+	<bean id="money4" class="domain.Money">
+	 	<property name="amount" value="8.0"/>
+		<property name="currency" value="eur"/>
+	</bean>
+	<bean id="money5" class="domain.Money">
+	 	<property name="amount" value="19.50"/>
+		<property name="currency" value="eur"/>
+	</bean>
+	<bean id="money6" class="domain.Money">
+	 	<property name="amount" value="10.0"/>
+		<property name="currency" value="eur"/>
+	</bean>
+	<bean id="entryMoney1" class="domain.Money">
+	 	<property name="amount" value="18.0"/>
+		<property name="currency" value="eur"/>
+	</bean>
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+	
+	<!-- Taxes -->
+	
+	<bean id="tax1" class="domain.Tax">
+		<property name="name" value="IVA"/>
+		<property name="percent" value="0.21"/>
+		<property name="sellingItems">
+			<list>
+				<ref bean="item1"/>
+				<ref bean="item2"/>
+			</list>
+		</property>
+	</bean>
+	
+	
+	
+	
+	<!-- Folders -->
+	
+	<bean id="inbox1" class="domain.Folder">
+		<property name="name" value="inbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="17"/>
+	</bean>
+	<bean id="outbox1" class="domain.Folder">
+		<property name="name" value="outbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="17"/>
+	</bean>
+  
+	<bean id="inbox2" class="domain.Folder">
+		<property name="name" value="inbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="24"/>
+	</bean>
+	<bean id="outbox2" class="domain.Folder">
+		<property name="name" value="outbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="24"/>
+	</bean>
+	<bean id="inbox3" class="domain.Folder">
+		<property name="name" value="inbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="25"/>
+	</bean>
+	<bean id="outbox3" class="domain.Folder">
+		<property name="name" value="outbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="25"/>
+	</bean>
+	<bean id="inbox4" class="domain.Folder">
+		<property name="name" value="inbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="26"/>
+	</bean>
+	<bean id="outbox4" class="domain.Folder">
+		<property name="name" value="outbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="26"/>
+	</bean>
+	<bean id="inbox5" class="domain.Folder">
+		<property name="name" value="inbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="27"/>
+	</bean>
+	<bean id="outbox5" class="domain.Folder">
+		<property name="name" value="outbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="27"/>
+	</bean>
+	<bean id="inbox6" class="domain.Folder">
+		<property name="name" value="inbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="11"/>
+	</bean>
+	<bean id="outbox6" class="domain.Folder">
+		<property name="name" value="outbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property>
+		<property name="actorId" value="11"/>
+	</bean>
+	<bean id="inbox7" class="domain.Folder">
+		<property name="name" value="inbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="22"/>
+	</bean>
+	<bean id="outbox7" class="domain.Folder">
+		<property name="name" value="outbox"/>
+		<property name="messages">
+			<list>
+			</list>
+		</property> 
+		<property name="actorId" value="22"/>
+	</bean>
+	
+	
+	<!-- Comments -->
+	
+	<bean id="comment1" class="domain.Comment">
+		<property name="text" value="Este es un comentario de prueba"/>
+		<property name="itemSource">
+			<ref bean="item1"/>
+		</property>	
+		<property name="customer">
+			<ref bean="custo1"/>
+		</property>
+	</bean>
+</beans>
